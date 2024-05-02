@@ -22,5 +22,21 @@ int main() {
 		printf("Не получилось закрыть\n");
 		exit(-1);
 	}
+	char resstring[21];
+	if((fd = open("DOOM.txt", O_RDONLY)) < 0) {
+		printf("Ошибка записи для чтения\n");
+		exit(-1);
+	} 
+	size = read(fd, resstring, 21);
+	if (size != 21) {
+		printf("epic failure\n");
+		exit(-1);
+	}
+	else printf("Всё получилось: %s\n", resstring);
+	if (close(fd) < 0) {
+		printf("Не получилось закрыть\n");
+		exit(-1);
+	return 0;
+	}
 	return 0;
 }
